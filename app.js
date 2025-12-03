@@ -9,3 +9,4 @@ function computerChoice() {
     }
     return;    
 }
+computerChoice()
