@@ -1,5 +1,5 @@
-function computerChoice() {
-    let result = Math.floor((Math.random()*3)+1)
+function getComputerChoice() {
+    const result = Math.floor((Math.random()*3)+1);
     if(result === 1){
         console.log('Computer: Rock')
     } else if(result === 2) {
@@ -9,4 +9,10 @@ function computerChoice() {
     }
     return;    
 }
-computerChoice()
+getComputerChoice()
+
+function getHumanChoice() {
+    const userChoice = prompt('Rock,Paper or Scissors? ');
+    return;
+}
+getHumanChoice()
