@@ -1,7 +1,3 @@
-//Variables to keep track of the players score
-let humanScore = 0;
-let computerScore = 0;
-
 //ComputerChoice
 function getComputerChoice() {
     let randomNum = Math.floor((Math.random()*3)+1);
@@ -27,26 +23,53 @@ function getHumanChoice() {
 
 
 //playRound
-function playRound(humanChoice,computerChoice) {
-    // Make your function’s humanChoice parameter case-insensitive
+function playRound(humanChoice,computerChoice,humanScore,computerScore) {
     if(humanChoice === computerChoice) {
         console.log("It's a Draw!");
     }
     else if(humanChoice === 'rock' && computerChoice === 'scissors') {
+        humanScore += 1;
         console.log('You Won! Rock beats Scissors');
     } else if(humanChoice === 'scissors' && computerChoice === 'rock') {
+        computerScore += 1;
         console.log('You Loss! Rock beats Scissors');
     } else if(humanChoice === 'scissors' && computerChoice === 'paper') {
+        humanScore += 1;
         console.log('You Won! Scissors beats Paper');
     } else if(humanChoice === 'paper' && computerChoice === 'scissors') {
+        computerScore += 1;
         console.log('You Loss! Scissors beats Paper');
     } else if(humanChoice === 'paper' && computerChoice === 'rock') {
+        humanScore += 1;
         console.log('You Won! Paper beats Rock');
     } else if(humanChoice === 'rock' && computerChoice === 'paper') {
+        computerScore += 1;
         console.log('You Loss! Paper beats Rock');
     }
 }
 
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
-playRound(humanSelection,computerSelection)
+// playGame 
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+    let i = 0;
+    
+    while (i < 5)
+    {
+    let computerSelection = getComputerChoice();
+    let humanSelection = getHumanChoice();
+    playRound(humanSelection, computerSelection, humanScore, computerScore);
+    i++;
+    }
+    if (humanScore > computerScore) {
+        alert("Game ended, human wins.");
+    }
+    else if (computerScore > humanScore) {
+        alert("Game ended, computer wins.");
+    }
+    else {
+        alert("Game ended, It's a tie.");
+    }
+}
+
+playGame()
