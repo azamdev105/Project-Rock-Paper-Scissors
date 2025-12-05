@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 //ComputerChoice
 function getComputerChoice() {
     let randomNum = Math.floor((Math.random()*3)+1);
@@ -23,35 +26,37 @@ function getHumanChoice() {
 
 
 //playRound
-function playRound(humanChoice,computerChoice,humanScore,computerScore) {
+function playRound(humanChoice,computerChoice) {
     if(humanChoice === computerChoice) {
         console.log("It's a Draw!");
     }
     else if(humanChoice === 'rock' && computerChoice === 'scissors') {
-        humanScore += 1;
+        ++humanScore;
         console.log('You Won! Rock beats Scissors');
     } else if(humanChoice === 'scissors' && computerChoice === 'rock') {
-        computerScore += 1;
+        ++computerScore;
         console.log('You Loss! Rock beats Scissors');
     } else if(humanChoice === 'scissors' && computerChoice === 'paper') {
-        humanScore += 1;
+        ++humanScore;
         console.log('You Won! Scissors beats Paper');
     } else if(humanChoice === 'paper' && computerChoice === 'scissors') {
-        computerScore += 1;
+        ++computerScore;
         console.log('You Loss! Scissors beats Paper');
     } else if(humanChoice === 'paper' && computerChoice === 'rock') {
-        humanScore += 1;
+        ++humanScore;
         console.log('You Won! Paper beats Rock');
     } else if(humanChoice === 'rock' && computerChoice === 'paper') {
-        computerScore += 1;
+        ++computerScore;
         console.log('You Loss! Paper beats Rock');
     }
+    console.log(`Your Score: ${humanScore} - Computer's Score: ${computerScore}`);
+    
 }
 
 // playGame 
 function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
+    humanScore = 0;
+    computerScore = 0;
     let i = 0;
     
     while (i < 5)
